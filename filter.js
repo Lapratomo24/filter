@@ -21,6 +21,15 @@ const people = [
   },
 ];
 
+const oldEnough = people.filter(person => person.age >= 21);
+console.log(oldEnough);
+
+const onlyPaul = people.filter(person => person.name === "Paul");
+console.log(onlyPaul);
+
+const onlyPaul1 = people.filter(person => person.name === "Paul")[0];
+console.log(onlyPaul1);
+
 
 // Complex Filtering
 const students = [
@@ -55,3 +64,21 @@ const students = [
     ]
   },
 ];
+
+// const candidates = students.filter(student => {
+//   let strongSkills = student.skills.filter(skill => skill.yrsExperience >= 5);
+//   return strongSkills.length > 0;
+// })
+// console.log(candidates);
+
+// const hasStrongSkills = student => {
+//   let strongSkills = student.skills.filter(skill => skill.yrsExperience >= 5);
+//   return strongSkills.length > 0;
+// };
+// const candidates = students.filter(hasStrongSkills);
+// console.log(candidates);
+
+const has5yearsExp = skills => skills.yrsExperience >= 5;
+const hasStrongSkills = student => student.skills.filter(has5yearsExp).length > 0;
+const candidates = students.filter(hasStrongSkills);
+console.log(candidates);
